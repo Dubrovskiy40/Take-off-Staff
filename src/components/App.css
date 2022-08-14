@@ -1,0 +1,26 @@
+.wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background-color: #6c6767;
+}
+
+.active {
+    cursor: pointer;
+}
+
+.content {
+    min-height: calc(100vh - 120px);
+}
+
+.footer__text {
+    color: #fff;
+}
+
+.btn:hover {
+    cursor: pointer;
+    color: #fff;
+    background-color: #000;
+
+}

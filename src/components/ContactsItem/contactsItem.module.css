@@ -1,0 +1,8 @@
+.contact {
+    max-width: 300px;
+    border-radius: 10px;
+    border: 2px solid #3469e0;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
