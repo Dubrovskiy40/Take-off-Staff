@@ -19,15 +19,10 @@ const MainPage: React.FC = () => {
             email: '',
             password: ''
         }));
-        location.pathname = '/';
     };
 
     const addContact = () => {
-        if (location.pathname === '/contacts') {
-            setModalActive(true)
-        } else {
-            console.log('user not login')
-        }
+        setModalActive(true)
     };
 
     return (
