@@ -1,6 +1,6 @@
-Your site is live at https://dubrovskiy40.github.io/Take-off-Staff/
-Email: admin@admin.ru
-Password: admin
+#Your site is live at https://dubrovskiy40.github.io/Take-off-Staff/
+#Email: admin@admin.ru
+#Password: admin
 
 # Getting Started with Create React App
 
