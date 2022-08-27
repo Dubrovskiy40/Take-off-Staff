@@ -1,20 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import AppRouter from "./AppRouter/AppRouter";
-import {BrowserRouter} from "react-router-dom";
-import Header from "./Header/Header";
+import { Routes, Route, Navigate } from "react-router-dom";
+import AuthPage from "./AuthPage/AuthPage";
+import MainPage from "./MainPage/MainPage";
 
 function App() {
+    const [token, setToken] = useState(false);
 
     return (
-        <BrowserRouter>
-            <div className='wrapper'>
-                <Header />
-                <main className='content'>
-                    <AppRouter />
-                </main>
-            </div>
-        </BrowserRouter>
+        <>
+            <Routes>
+                <Route
+                    path="/"
+                    element={token ? <Navigate to="/contacts" replace /> : <AuthPage setToken={setToken} />}
+                />
+                <Route path="/contacts" element={<MainPage/>}/>
+            </Routes>
+        </>
     );
 }
 

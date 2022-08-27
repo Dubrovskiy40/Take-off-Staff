@@ -2,17 +2,25 @@ import {
     GET_USER,
     DELETE_USER
 } from "./types/userTypes";
-import {ActionsTypes} from "../actions/userAction";
+import {ActionsTypes, IUser} from "../actions/userAction";
 
-const initialState: string  = '';
+type InitialStateType = {
+    email: string,
+    password: string
+};
 
-const userReducer = (state = initialState, { type, payload }: ActionsTypes): string => {
+const initialState: InitialStateType  = {
+    email: '',
+    password: ''
+};
+
+const userReducer = (state = initialState, { type, payload }: ActionsTypes): IUser => {
     switch (type) {
         case GET_USER:
             return payload;
 
         case DELETE_USER:
-            return '';
+            return payload;
 
         default:
             return state;
