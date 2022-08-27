@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Take-off-Staff/static/css/main.66e15339.css",
+    "main.js": "/Take-off-Staff/static/js/main.80d70e53.js",
+    "index.html": "/Take-off-Staff/index.html",
+    "main.66e15339.css.map": "/Take-off-Staff/static/css/main.66e15339.css.map",
+    "main.80d70e53.js.map": "/Take-off-Staff/static/js/main.80d70e53.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.66e15339.css",
+    "static/js/main.80d70e53.js"
+  ]
+}
