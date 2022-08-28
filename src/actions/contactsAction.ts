@@ -2,13 +2,11 @@ import {
     ADD_CONTACT,
     DELETE_CONTACT,
     GET_CONTACTS,
-    SEARCH_CONTACT,
     UPDATE_CONTACT,
 } from "../store/types/contactsTypes";
-import {InitialStateContactsReducerArrayType} from "../store/contactsReducer";
 
 export type ActionsTypes = GetContactsActionType | DeleteContactActionType
-    | AddContactActionType | SearchContactActionType | UpdateContactActionType
+    | AddContactActionType | UpdateContactActionType
 
 type GetContactsPayloadType = {
     id: number
@@ -53,18 +51,6 @@ export const addContact = (firstName: string, lastName: string, email: string): 
     return {
         type: ADD_CONTACT,
         payload: {firstName: firstName, lastName: lastName, email: email},
-    };
-};
-
-export type SearchContactActionType = {
-    type: typeof SEARCH_CONTACT
-    payload: string
-};
-
-export const searchContact = (value: string): SearchContactActionType => {
-    return {
-        type: SEARCH_CONTACT,
-        payload: value
     };
 };
 

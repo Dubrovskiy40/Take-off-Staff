@@ -4,17 +4,17 @@ import {
 } from "./types/userTypes";
 import {ActionsTypes, IUser} from "../actions/userAction";
 
-type InitialStateType = {
+export interface IUserReducer {
     email: string,
     password: string
 };
 
-const initialState: InitialStateType  = {
+const initialState: IUserReducer  = {
     email: '',
     password: ''
 };
 
-const userReducer = (state = initialState, { type, payload }: ActionsTypes): IUser => {
+const userReducer = (state = initialState, { type, payload }: ActionsTypes): IUserReducer => {
     switch (type) {
         case GET_USER:
             return payload;

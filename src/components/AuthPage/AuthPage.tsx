@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect} from "react";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,10 +14,8 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../store";
-import Alert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
-import { useLocation, useNavigate } from 'react-router-dom';
 import {getUser} from "../../actions/userAction";
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props: any) {
     return (
@@ -31,17 +29,13 @@ function Copyright(props: any) {
         </Typography>
     );
 }
-
 const theme = createTheme();
 
-type Props = {
-    setToken: (boolean: boolean) => void
-};
-
-const AuthPage = ({ setToken }: Props) => {
+const AuthPage: React.FC = () => {
     const auth = useSelector((state: RootState) => state.auth);
-    const [errorAuth, setErrorAuth] = useState(false);
+    const user = useSelector((state: RootState) => state.user);
 
+    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -55,21 +49,22 @@ const AuthPage = ({ setToken }: Props) => {
         let emailValue = String(data.get('email'));
         let passwordValue = String(data.get('password'));
 
-        const user = {
+        const userValue = {
             email: emailValue,
             password: passwordValue
         };
-        console.log('user',user)
-        dispatch(getUser(user));
-
-        if (user.email === auth[0].email &&  user.password === auth[0].password) {
-            console.log('доступ разрешен');
-            setToken(true);
-        } else {
-            console.log('доступ запрещен');
-            setErrorAuth(prevState => !prevState)
-        }
+        console.log('userValue',userValue)
+        dispatch(getUser(userValue));
     };
+
+    useEffect(() => {
+        if (user.email !== auth.email &&  user.password !== auth.password) {
+            console.log('доступ запрещен');
+        } else {
+            console.log('доступ разрешен');
+            navigate('/contacts');
+        }
+    }, [user]);
 
     return (
         <ThemeProvider theme={theme}>
@@ -90,11 +85,6 @@ const AuthPage = ({ setToken }: Props) => {
                     }}
                 />
                 <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-                    {
-                        errorAuth && <Stack sx={{ width: '100%' }} spacing={2}>
-                            <Alert severity="error">Ошибка в логине и/или пароле!</Alert>
-                        </Stack>
-                    }
                     <Box
                         sx={{
                             my: 8,

@@ -3,12 +3,12 @@ export interface IAuthReducer  {
     password: string;
 }
 
-const initialState: IAuthReducer[] = [{
+const initialState: IAuthReducer = {
         email: 'admin@admin.ru',
         password: 'admin'
-}];
+};
 
-const authReducer = (state = initialState, {type}: any): IAuthReducer[] => {
+const authReducer = (state = initialState, {type}: any): IAuthReducer => {
     switch (type) {
 
         default:

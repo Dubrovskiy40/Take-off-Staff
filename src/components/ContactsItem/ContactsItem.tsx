@@ -6,17 +6,10 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
-
-type ObjectType = {
-    id: number
-    first_name: string
-    last_name: string
-    email: string
-    avatar: string
-}
+import {InitialStateContactsReducerArrayType} from "../../store/contactsReducer";
 
 interface IContactsItem {
-    contact: ObjectType
+    contact: InitialStateContactsReducerArrayType
 }
 
 const ContactsItem: React.FC<IContactsItem> = ({ contact }) => {

@@ -2,7 +2,6 @@ import {
     ADD_CONTACT,
     DELETE_CONTACT,
     GET_CONTACTS,
-    SEARCH_CONTACT,
     UPDATE_CONTACT,
 } from "./types/contactsTypes";
 import {ActionsTypes} from "../actions/contactsAction";
@@ -35,12 +34,6 @@ const contactsReducer = (state = initialState, { type, payload }: ActionsTypes):
 
         case GET_CONTACTS:
             return [...payload];
-
-        case SEARCH_CONTACT:
-            if (payload) {
-                console.log([...JSON.parse(JSON.stringify(state))])
-                return [...JSON.parse(JSON.stringify(state))].filter((el) => el.first_name.includes(payload) || el.last_name.includes(payload) || el.email.includes(payload))
-            } else  {return state}
 
         case UPDATE_CONTACT:
             return state.map((el: InitialStateContactsReducerArrayType) => {
