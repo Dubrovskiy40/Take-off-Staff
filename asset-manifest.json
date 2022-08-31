@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Take-off-Staff/static/css/main.66e15339.css",
-    "main.js": "/Take-off-Staff/static/js/main.4f7cb8ed.js",
+    "main.css": "/Take-off-Staff/static/css/main.977f102b.css",
+    "main.js": "/Take-off-Staff/static/js/main.45d8eaaa.js",
     "index.html": "/Take-off-Staff/index.html",
-    "main.66e15339.css.map": "/Take-off-Staff/static/css/main.66e15339.css.map",
-    "main.4f7cb8ed.js.map": "/Take-off-Staff/static/js/main.4f7cb8ed.js.map"
+    "main.977f102b.css.map": "/Take-off-Staff/static/css/main.977f102b.css.map",
+    "main.45d8eaaa.js.map": "/Take-off-Staff/static/js/main.45d8eaaa.js.map"
   },
   "entrypoints": [
-    "static/css/main.66e15339.css",
-    "static/js/main.4f7cb8ed.js"
+    "static/css/main.977f102b.css",
+    "static/js/main.45d8eaaa.js"
   ]
 }
