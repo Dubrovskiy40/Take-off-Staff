@@ -14,10 +14,10 @@ import {InitialStateContactsReducerArrayType} from "../../store/contactsReducer"
 
 const MainPage: React.FC = () => {
     const contactRedux = useSelector((state: RootState) => state.contacts);
-    console.log('contactRedux',contactRedux)
+    const user = useSelector((state: RootState) => state.user);
+
     const [modalActive, setModalActive] = useState<boolean>(false);
     const [searchValue, setSearchValue] = useState<string>('');
-    const [contacts, setContacts] = useState(contactRedux);
 
     useEffect(() => {
         fetch("https://reqres.in/api/users?per_page=12/")
@@ -25,7 +25,6 @@ const MainPage: React.FC = () => {
             .then((data) => dispatch(getContacts(data.data)))
     }, []);
 
-    const user = useSelector((state: RootState) => state.user);
     const dispatch = useDispatch();
 
     const handleDeleteUser = () => {
@@ -39,7 +38,7 @@ const MainPage: React.FC = () => {
         setModalActive(true)
     };
 
-    const filteredContacts: Array<InitialStateContactsReducerArrayType> = contacts?.filter((contact) => {
+    const filteredContacts: Array<InitialStateContactsReducerArrayType> = contactRedux?.filter((contact: InitialStateContactsReducerArrayType) => {
         return contact.first_name.includes(searchValue) || contact.last_name.includes(searchValue) || contact.email.includes(searchValue)
     })
 
